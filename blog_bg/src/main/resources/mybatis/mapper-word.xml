@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guduke.blog.dao.WordDao">	
+	<delete id="deleteWord">
+		delete from t_word where id=#{id}
+	</delete>
+	
+	<select id="queryWordById" resultType="word">
+		select id,content from t_word where id=#{id}
+	</select>
+	
+	<insert id="insert">
+		insert into t_word(content,createtime) values(#{content},#{createtime})
+	</insert>
+	
+	<update id="update">
+		update t_word set content=#{content} where id=#{id}
+	</update>
+		
+	<select id="queryTotalSize" resultType="int">
+		select count(*) from t_word
+	</select>
+	
+	<select id="queryAllWord" resultType="word">
+		select * from t_word
+		order by createtime desc
+		limit #{start},#{pageSize}
+	</select>
+</mapper>

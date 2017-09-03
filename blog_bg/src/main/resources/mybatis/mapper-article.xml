@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guduke.blog.dao.ArticleDao">
+
+	<update id="updateArticleMark">
+		update t_article set mark=#{mark} where id=#{id}
+	</update>
+	
+	<select id="queryCategory" resultType="category">
+		select * from t_category
+	</select>
+	
+	<insert id="insertArticle">
+		insert into t_article(title,content,categoryid,createtime,modifytime,digest,mark) 
+		values(#{title},#{content},#{categoryid},#{createtime},#{modifytime},#{digest},#{mark})
+	</insert>
+	
+	<select id="queryTotalSize" resultType="int">
+		select count(*) from t_article a,t_category c where a.categoryid=c.id
+		<if test="categorieid!=null and categorieid>0">
+			and categoryid=#{categorieid}
+		</if>
+		<if test="qname!=null">
+			and title like concat('%',#{qname},'%')
+		</if>
+	</select>
+	
+	<select id="queryAllArticle" resultMap="articleMap">
+		select * from t_article a,t_category c 
+		where a.categoryid=c.id 
+		<if test="categorieid!=null and categorieid>0">
+			and categoryid=#{categorieid}
+		</if>
+		<if test="qname!=null">
+			and title like concat('%',#{qname},'%')
+		</if>
+		order by a.createtime desc
+		limit #{start},#{pageSize}
+	</select>
+	<resultMap type="article" id="articleMap">
+		<id column="id" property="id"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="createtime" property="createtime"/> 
+		<result column="modifytime" property="modifytime"/>
+		<result column="categoryid" property="categoryid"/> 
+		<result column="digest" property="digest"/> 
+		<result column="mark" property="mark"/> 
+		<association property="category" javaType="category">
+			<id column="categoryid" property="id"/>
+			<result column="name" property="name"/>
+		</association>
+	</resultMap>
+	<select id="queryArticleById" resultMap="articleMap">
+		select * from t_article a,t_category c 
+		where a.categoryid=c.id and a.id=#{id}
+	</select>
+	<update id="updateArticle">
+		update t_article 
+		set title=#{title},content=#{content},
+		categoryid=#{categoryid},modifytime=#{modifytime},
+		digest=#{digest}
+		where id=#{id}
+	</update>
+	<delete id="deleteArticle">
+		delete from t_article where id=#{id}
+	</delete>
+</mapper>

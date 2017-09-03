@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guduke.blog.dao.BlogDao">
+
+	<select id="queryArticleTotalSize" resultType="int">
+		select count(*) from t_article a,t_category c where a.categoryid=c.id
+		<if test="categorieid!=null and categorieid>0">
+			and categoryid=#{categorieid}
+		</if>
+	</select>
+	
+	<select id="queryAllArticle" resultMap="articleMap">
+		select * from t_article a,t_category c 
+		where a.categoryid=c.id 
+		<if test="categorieid!=null and categorieid>0">
+			and categoryid=#{categorieid}
+		</if>
+		order by a.createtime desc
+		limit #{start},#{pageSize}
+	</select>
+	
+	<select id="queryMarkArticle" resultMap="articleMap">
+		select * from t_article a,t_category c 
+		where a.categoryid=c.id 
+		and mark=1
+		order by a.createtime desc
+		limit 6
+	</select>
+	
+	<select id="queryRankArticle" resultMap="articleMap">
+		select * from t_article a,t_category c 
+		where a.categoryid=c.id 
+		order by a.createtime desc
+		limit 12
+	</select>
+	<resultMap type="article" id="articleMap">
+		<id column="id" property="id"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="createtime" property="createtime"/> 
+		<result column="modifytime" property="modifytime"/>
+		<result column="categoryid" property="categoryid"/> 
+		<result column="digest" property="digest"/> 
+		<result column="mark" property="mark"/> 
+		<association property="category" javaType="category">
+			<id column="categoryid" property="id"/>
+			<result column="name" property="name"/>
+		</association>
+	</resultMap>
+	
+	<select id="queryWord" resultType="word">
+		select * from t_word
+	</select>
+	<select id="queryWordTotalSize" resultType="int">
+		select count(*) from t_word
+	</select>
+	
+	<select id="queryAllWord" resultType="word">
+		select * from t_word
+		order by createtime desc
+		limit #{start},#{pageSize}
+	</select>
+	
+	<select id="queryArticleById" resultMap="articleMap">
+		select * from t_article a,t_category c 
+		where a.categoryid=c.id and a.id=#{id}
+	</select>
+	
+	<select id="queryCategoryById" resultType="category">
+		select * from t_category where id=#{id}
+	</select>
+	
+	<select id="queryUser" resultType="user">
+		select * from t_user
+	</select>
+	
+	<select id="queryCategory" resultType="category">
+		select * from t_category
+	</select>
+</mapper>

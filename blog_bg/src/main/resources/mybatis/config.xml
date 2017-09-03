@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.guduke.blog.entity.User" alias="user"/>
+		<typeAlias type="com.guduke.blog.entity.Menu" alias="menu"/>
+		<typeAlias type="com.guduke.blog.entity.Article" alias="article"/>
+		<typeAlias type="com.guduke.blog.entity.Category" alias="category"/>
+		<typeAlias type="com.guduke.blog.entity.Word" alias="word"/>
+	</typeAliases>
+</configuration>

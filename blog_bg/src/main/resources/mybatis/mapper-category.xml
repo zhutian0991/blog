@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guduke.blog.dao.CategoryDao">
+	<select id="queryCategory" resultType="category">
+		select id,name from t_category
+	</select>
+	
+	<select id="queryCategoryById" resultType="category">
+		select id,name from t_category where id=#{id}
+	</select>
+	
+	<insert id="insert">
+		insert into t_category(name) values(#{name})
+	</insert>
+	
+	<update id="update">
+		update t_category set name=#{name} where id=#{id}
+	</update>
+	
+	<delete id="delete">
+		delete from t_category where id=#{id}
+	</delete>
+</mapper>
