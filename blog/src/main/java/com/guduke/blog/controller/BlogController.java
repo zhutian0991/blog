@@ -16,8 +16,10 @@ import com.guduke.blog.entity.Article;
 import com.guduke.blog.entity.Category;
 import com.guduke.blog.entity.Page;
 import com.guduke.blog.entity.User;
+import com.guduke.blog.entity.Weather;
 import com.guduke.blog.entity.Word;
 import com.guduke.blog.service.BlogService;
+import com.guduke.blog.util.WeatherUtil;
 
 @Controller
 public class BlogController {
@@ -30,8 +32,15 @@ public class BlogController {
 	public String main(HttpSession session,Model model){
 		List<Article> articles = blogService.queryMarkArticle();
 		List<Article> rankArticles = blogService.queryRankArticle();
+		//获取用户信息
 		User user = blogService.queryUser();
+		//获取文章分类
 		List<Category> categories = blogService.queryCategory();
+		//获取天气信息
+		if(session.getAttribute("weather")==null){
+			Weather weather = WeatherUtil.getWeather("长沙");
+			session.setAttribute("weather", weather);
+		}
 		session.setAttribute("categories", categories);
 		session.setAttribute("suser", user);
 		model.addAttribute("articles", articles);

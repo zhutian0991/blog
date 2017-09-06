@@ -14,6 +14,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 </head>
 <body>
+<embed src="${pageContext.request.contextPath}/music/wait-one-minute.mp3" autostart="true" hidden="true" loop="true">
 <div id="wrapper">
   <header>
     <div class="headtop"></div>
@@ -83,9 +84,28 @@
         </div>
       </div>
       <!--tit01 end-->
-      
       <div class="ph">
-        <h3 class="tit">文章列表</h3>
+      	<h3 class="tit">天气信息</h3>
+      	<table>
+			<tr>
+				<td rowspan="2" style="padding-right: 30px;padding-left: 20px;"><font size="5">${weather.city}</font></td>
+				<c:if test="${weather.pic1 == weather.pic2}">
+					<td>
+						<img alt="" src="weather/b_${weather.pic1}">
+					</td>
+				</c:if>
+				<c:if test="${weather.pic1 != weather.pic2}">
+					<td>
+						<img alt="" src="weather/${weather.pic1}">
+						<img alt="" src="weather/${weather.pic2}">
+					</td>
+				</c:if>
+				<td style="padding-left: 10px;font-size: 160%;">${weather.tq}<br>${weather.emperature}</td>
+			</tr>
+		</table>
+      </div>
+      <div class="ph">
+        <h3 class="tit">最新文章</h3>
         <ul class="rank">
           <c:forEach items="${rankArticles}" var="rankArticle">
           	<li><a href="${pageContext.request.contextPath}/showArticle.htm?id=${rankArticle.id}">${rankArticle.title}</a></li>

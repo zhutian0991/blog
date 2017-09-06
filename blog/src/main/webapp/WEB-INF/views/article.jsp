@@ -71,7 +71,7 @@
           	<span>分类【<a style="text-decoration: underline;" href="${pageContext.request.contextPath}/list.htm?id=${article.categoryid}">${article.category.name}</a>】</span>
           </p>
         </div>
-        <ul>
+        <ul class="about_content">
           <p>${article.content}</p>
         </ul>
       </div>
