@@ -22,6 +22,16 @@
 		<property name="defaultEncoding" value="utf-8"></property>
 		<property name="maxUploadSize" value="16777216"></property>
 	</bean>
+	<!-- 设置用户登录拦截器，当用户数据获取不到，自动跳转到登录页面 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/user/login.htm"/>
+			<mvc:exclude-mapping path="/user/dologin.do"/>
+			<mvc:exclude-mapping path="/user/authImage.do"/>
+			<bean class="com.guduke.blog.intercepter.UserLoginIntercepter"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<mvc:default-servlet-handler/>
 </beans>
