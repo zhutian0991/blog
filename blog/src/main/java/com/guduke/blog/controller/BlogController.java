@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,22 +31,32 @@ public class BlogController {
 	//跳转到主页，将用户及文章分类信息放入到session
 	@RequestMapping("/home")
 	public String main(HttpSession session,Model model){
-		List<Article> articles = blogService.queryMarkArticle();
-		List<Article> rankArticles = blogService.queryRankArticle();
-		//获取用户信息
-		User user = blogService.queryUser();
-		//获取文章分类
-		List<Category> categories = blogService.queryCategory();
-		//获取天气信息
-		if(session.getAttribute("weather")==null){
-			Weather weather = WeatherUtil.getWeather("长沙");
-			session.setAttribute("weather", weather);
+		try {
+			List<Article> articles = blogService.queryMarkArticle();
+			List<Article> rankArticles = blogService.queryRankArticle();
+			//获取用户信息
+			User user = blogService.queryUser();
+			//获取文章分类
+			List<Category> categories = blogService.queryCategory();
+			//获取天气信息，对天气信息进行异常处理，防止获取不到天气影响主页显示
+			try {
+				if(session.getAttribute("weather")==null){
+					Weather weather = WeatherUtil.getWeather("长沙");
+					session.setAttribute("weather", weather);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				session.setAttribute("categories", categories);
+				session.setAttribute("suser", user);
+				model.addAttribute("articles", articles);
+				model.addAttribute("rankArticles", rankArticles);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect:/error.jsp";
 		}
-		session.setAttribute("categories", categories);
-		session.setAttribute("suser", user);
-		model.addAttribute("articles", articles);
-		model.addAttribute("rankArticles", rankArticles);
-		System.out.println("ceshi");
+		
 		return "home";
 	}
 	
