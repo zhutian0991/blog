@@ -45,6 +45,7 @@ public class BlogController {
 		session.setAttribute("suser", user);
 		model.addAttribute("articles", articles);
 		model.addAttribute("rankArticles", rankArticles);
+		System.out.println("ceshi");
 		return "home";
 	}
 	
