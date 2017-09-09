@@ -14,7 +14,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-<embed src="${pageContext.request.contextPath}/music/wait-one-minute.mp3" autostart="true" hidden="true" loop="true">
+<embed src="${pageContext.request.contextPath}/music/wait-one-minute.mp3" autostart="true" hidden="true" loop="1">
 <div id="wrapper">
   <header>
     <div class="headtop"></div>
@@ -84,6 +84,7 @@
         </div>
       </div>
       <!--tit01 end-->
+      <c:if test="${not empty weather}">
       <div class="ph">
       	<h3 class="tit">天气信息</h3>
       	<table>
@@ -104,6 +105,7 @@
 			</tr>
 		</table>
       </div>
+      </c:if>
       <div class="ph">
         <h3 class="tit">最新文章</h3>
         <ul class="rank">
