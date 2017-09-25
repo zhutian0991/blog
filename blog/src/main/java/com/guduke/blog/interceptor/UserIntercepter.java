@@ -16,7 +16,7 @@ public class UserIntercepter implements HandlerInterceptor {
 		User user = (User) request.getSession().getAttribute("suser");
 		//session获取不到user数据时，重定向到首页
 		if(user==null){
-			response.sendRedirect("/blog");
+			response.sendRedirect("/");
 			return false;
 		}
 		return true;

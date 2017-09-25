@@ -77,6 +77,14 @@ public class BlogController {
 	public String showArticle(Integer id,Model model){
 		Article article = blogService.queryArticleById(id);
 		model.addAttribute("article", article);
+		
+		//查询上一篇文章
+		Article preArticle = blogService.queryPreArticle(article);
+		model.addAttribute("preArticle", preArticle);
+		
+		//查询下一篇文章
+		Article nextArticle = blogService.queryNextArticle(article);
+		model.addAttribute("nextArticle", nextArticle);
 		return "article";
 	}
 	
@@ -119,5 +127,11 @@ public class BlogController {
 			resultMap.put("success", false);
 		}
 		return resultMap;
+	}
+	
+	//跳转到文章列表页面
+	@RequestMapping("/message")
+	public String message(){
+		return "message";
 	}
 }

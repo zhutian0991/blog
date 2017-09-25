@@ -32,5 +32,9 @@ public interface BlogDao {
 
 	List<Category> queryCategory();
 
+	Article queryPreArticle(Article article);
+
+	Article queryNextArticle(Article article);
+
 
 }

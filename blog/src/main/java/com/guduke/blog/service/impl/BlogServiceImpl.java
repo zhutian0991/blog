@@ -101,4 +101,14 @@ public class BlogServiceImpl implements BlogService{
 		return blogDao.queryCategory();
 	}
 
+	@Override
+	public Article queryPreArticle(Article article) {
+		return blogDao.queryPreArticle(article);
+	}
+
+	@Override
+	public Article queryNextArticle(Article article) {
+		return blogDao.queryNextArticle(article);
+	}
+
 }

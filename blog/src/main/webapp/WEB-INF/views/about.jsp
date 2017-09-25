@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>孤独客博客</title>
-<meta name="keywords" content="孤独客博客" />
-<meta name="description" content="孤独客博客" />
+<title>个人简介</title>
+<meta name="keywords" content="孤独客空间" />
+<meta name="description" content="孤独客空间" />
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/main1.css" rel="stylesheet">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
@@ -18,7 +18,7 @@
   <header>
     <div class="headtop"></div>
     <div class="contenttop">
-    <div class="logo f_l" style="display: inline-block;">孤独客博客</div>
+    <div class="logo f_l" style="display: inline-block;">孤独客空间</div>
 	
     <div class="search f_r" style="display: inline-block;">
       <p>${suser.motto}</p>
@@ -28,15 +28,20 @@
         <div class="navigation">
           <ul class="menu">
             <li><a href="${pageContext.request.contextPath}/home.htm">网站首页</a></li>
+            <li><a href="javascript:;">我的文章</a>
+            	<ul>
+	            <c:forEach items="${categories}" var="category">
+	            	<li><a href="${pageContext.request.contextPath}/list.htm?id=${category.id}">${category.name}</a>
+	            </c:forEach>            	
+            	</ul>
+            </li>
+ 			<li><a href="${pageContext.request.contextPath}/shuo.htm">碎言碎语</a> </li>
             <li><a href="javascript:;">关于我</a>
               <ul>
                 <li><a href="${pageContext.request.contextPath}/about.htm">个人简介</a></li>
               </ul>
             </li>
-            <c:forEach items="${categories}" var="category">
-            	<li><a href="${pageContext.request.contextPath}/list.htm?id=${category.id}">${category.name}</a>
-            </c:forEach>
-			<li><a href="${pageContext.request.contextPath}/shuo.htm">碎言碎语</a> </li>
+            <li><a href="${pageContext.request.contextPath}/message.htm">留言板</a></li>
           </ul>
         </div>
       </nav>
@@ -73,7 +78,7 @@
   <footer>
     <div class="footer">
       <div class="f_l">
-        <p>All Rights Reserved 版权所有：<a href="${pageContext.request.contextPath}/home.htm">孤独客博客</a></p>
+        <p>All Rights Reserved 版权所有：<a href="http://www.guduke.cn/">孤独客空间</a></p>
       </div>
       <div class="f_r textr">
         <p>Design by Guduke</p>
