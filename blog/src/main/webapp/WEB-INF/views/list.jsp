@@ -11,6 +11,7 @@
 <meta name="description" content="孤独客空间" />
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/main1.css" rel="stylesheet">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pagination.css">
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>

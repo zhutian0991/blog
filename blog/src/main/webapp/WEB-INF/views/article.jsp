@@ -11,6 +11,7 @@
 <meta name="description" content="孤独客空间" />
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/main1.css" rel="stylesheet">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pagination.css">
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
@@ -73,7 +74,7 @@
           <p class="box_p">
           	<span>发布时间：<fmt:formatDate value="${article.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
           	<span>作者：孤独客</span>
-          	<span>分类【<a style="text-decoration: underline;" href="${pageContext.request.contextPath}/list.htm?id=${article.categoryid}">${article.category.name}</a>】</span>
+          	<span>分类【<a style="text-decoration:none;" href="${pageContext.request.contextPath}/list.htm?id=${article.categoryid}">${article.category.name}</a>】</span>
           </p>
         </div>
         <ul class="about_content">
