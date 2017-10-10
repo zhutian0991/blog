@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>孤独客空间</title>
-<meta name="keywords" content="孤独客空间" />
-<meta name="description" content="孤独客空间" />
+<title>微光空间</title>
+<meta name="keywords" content="微光空间" />
+<meta name="description" content="微光空间" />
 <meta name="uyan_auth" content="071851c9a5" />
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet">
@@ -21,7 +21,7 @@
   <header>
     <div class="headtop"></div>
     <div class="contenttop">
-    <div class="logo f_l" style="display: inline-block;">孤独客空间</div>
+    <div class="logo f_l" style="display: inline-block;">微光空间</div>
 	
     <div class="search f_r" style="display: inline-block;">
       <p>${suser.motto}</p>
@@ -73,7 +73,7 @@
       </ul>
       <p class="dateview">
 	      <span><fmt:formatDate value="${article.createtime}" pattern="yyyy-MM-dd"/></span>
-	      <span>作者：孤独客</span>
+	      <span>作者：微光</span>
 	      <span>个人空间：[<a href="${pageContext.request.contextPath}/list.htm?id=${article.categoryid}">${article.category.name}</a>]</span>
       </p>     
       </c:forEach>
@@ -129,7 +129,7 @@
   <footer>
     <div class="footer">
       <div class="f_l">
-        <p>All Rights Reserved 版权所有：<a href="http://www.guduke.cn/">孤独客空间</a></p>
+        <p>All Rights Reserved 版权所有：<a href="http://www.guduke.cn/">微光空间</a>  备案号：湘ICP备17018824</p>
       </div>
       <div class="f_r textr">
         <p>Design by Guduke</p>

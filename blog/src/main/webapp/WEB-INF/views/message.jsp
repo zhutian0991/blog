@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>留言板</title>
-<meta name="keywords" content="孤独客空间" />
-<meta name="description" content="孤独客空间" />
+<meta name="keywords" content="微光空间" />
+<meta name="description" content="微光空间" />
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/main1.css" rel="stylesheet">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />
@@ -19,7 +19,7 @@
   <header>
     <div class="headtop"></div>
     <div class="contenttop">
-    <div class="logo f_l" style="display: inline-block;">孤独客空间</div>
+    <div class="logo f_l" style="display: inline-block;">微光空间</div>
 	
     <div class="search f_r" style="display: inline-block;">
       <p>${suser.motto}</p>
@@ -76,7 +76,7 @@
   <footer>
     <div class="footer">
       <div class="f_l">
-        <p>All Rights Reserved 版权所有：<a href="http://www.guduke.cn/">孤独客空间</a></p>
+        <p>All Rights Reserved 版权所有：<a href="http://www.guduke.cn/">微光空间</a> 备案号：湘ICP备17018824</p>
       </div>
       <div class="f_r textr">
         <p>Design by Guduke</p>
