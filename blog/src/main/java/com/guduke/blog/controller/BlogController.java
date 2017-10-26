@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.guduke.blog.entity.Article;
 import com.guduke.blog.entity.Category;
+import com.guduke.blog.entity.Link;
 import com.guduke.blog.entity.Page;
 import com.guduke.blog.entity.User;
 import com.guduke.blog.entity.Weather;
@@ -38,6 +38,9 @@ public class BlogController {
 			User user = blogService.queryUser();
 			//获取文章分类
 			List<Category> categories = blogService.queryCategory();
+			//获取链接地址
+			List<Link> links = blogService.queryLink();
+			
 			//获取天气信息，对天气信息进行异常处理，防止获取不到天气影响主页显示
 			try {
 				if(session.getAttribute("weather")==null){
@@ -51,6 +54,7 @@ public class BlogController {
 				session.setAttribute("suser", user);
 				model.addAttribute("articles", articles);
 				model.addAttribute("rankArticles", rankArticles);
+				model.addAttribute("links", links);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -39,12 +39,9 @@
             	</ul>
             </li>
  			<li><a href="${pageContext.request.contextPath}/shuo.htm" target="_blank">碎言碎语</a> </li>
-            <li><a href="javascript:;">关于我</a>
-              <ul>
-                <li><a href="${pageContext.request.contextPath}/about.htm" target="_blank">个人简介</a></li>
-              </ul>
-            </li>
+            <li><a href="${pageContext.request.contextPath}/about.htm" target="_blank">个人简介</a></li>
             <li><a href="${pageContext.request.contextPath}/message.htm" target="_blank">留言板</a></li>
+            <li><a href="http://www.guduke.cn/blog_bg" target="_blank">后台管理</a></li>
           </ul>
         </div>
       </nav>
@@ -80,13 +77,13 @@
     </div>
     <div class="r_box f_r">
       <div class="tit01">
-        <h3 class="tit">关注我</h3>
+        <h3 class="tit">联系方式</h3>
         <div class="gzwm">
           <ul>
-            <li><a class="email" >我的电话</a></li>
-            <li><a class="qq" href="#" title="${suser.email}">我的邮箱</a></li>
-            <li><a class="tel" href="#" title="${suser.qq}">我的QQ</a></li>
-            <li><a class="prize" href="#">个人奖项</a></li>
+            <li><a class="email" title="无可奉告^-^">我的电话</a></li>
+            <li><a class="qq" href="mailto:${suser.email}" title="${suser.email}" target="_blank">我的邮箱</a></li>
+            <li><a class="tel" href="http://wpa.qq.com/msgrd?v=3&uin=${suser.qq}&site=qq&menu=yes" title="${suser.qq}" target="_blank">我的QQ</a></li>
+            <li><a class="prize" href="https://weibo.com/2621560252" target="_blank">我的微博</a></li>
           </ul>
         </div>
       </div>
@@ -120,6 +117,14 @@
           	<li><a href="${pageContext.request.contextPath}/showArticle.htm?id=${rankArticle.id}" target="_blank">${rankArticle.title}</a></li>
           </c:forEach>
         </ul>
+      </div>
+      <div class="ph">
+      	<h3 class="tit">友情链接</h3>
+      	<ul class="links" style="width: 100%">
+      		<c:forEach items="${links}" var="link">
+      			<li><a href="${link.url}" target="_blank">${link.name}</a></li>
+			</c:forEach>
+      	</ul>
       </div>
       <div class="ad"> <img src="${pageContext.request.contextPath}/images/03.jpg"> </div>
     </div>

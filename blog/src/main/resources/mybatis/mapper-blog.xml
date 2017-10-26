@@ -95,4 +95,8 @@
 		)
 		and a.categoryid=c.id
 	</select>
+	
+	<select id="queryLink" resultType="link">
+		select * from t_link
+	</select>
 </mapper>

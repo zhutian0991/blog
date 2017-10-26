@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.guduke.blog.dao.BlogDao;
 import com.guduke.blog.entity.Article;
 import com.guduke.blog.entity.Category;
+import com.guduke.blog.entity.Link;
 import com.guduke.blog.entity.Page;
 import com.guduke.blog.entity.User;
 import com.guduke.blog.entity.Word;
@@ -109,6 +110,11 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public Article queryNextArticle(Article article) {
 		return blogDao.queryNextArticle(article);
+	}
+
+	@Override
+	public List<Link> queryLink() {
+		return blogDao.queryLink();
 	}
 
 }

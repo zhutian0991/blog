@@ -9,5 +9,6 @@
 		<typeAlias type="com.guduke.blog.entity.Article" alias="article"/>
 		<typeAlias type="com.guduke.blog.entity.Category" alias="category"/>
 		<typeAlias type="com.guduke.blog.entity.Word" alias="word"/>
+		<typeAlias type="com.guduke.blog.entity.Link" alias="link"/>
 	</typeAliases>
 </configuration>
