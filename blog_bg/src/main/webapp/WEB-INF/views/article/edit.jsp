@@ -93,7 +93,7 @@
 				  		</td>
 				  		<td>
 				  			<div class="form-group">
-				  			<input style="width: 600px;" type="text" maxlength=20 class="form-control" id="ftitle" name="title" value="${article.title}" placeholder="请输入标题">
+				  			<input style="width: 600px;" type="text" class="form-control" id="ftitle" name="title" value="${article.title}" placeholder="请输入标题">
 				  			</div>
 				  		</td>
 				  	</tr>
