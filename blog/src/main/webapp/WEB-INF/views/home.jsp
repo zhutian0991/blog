@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>孤独客空间</title>
-<meta name="keywords" content="孤独客空间" />
-<meta name="description" content="孤独客空间" />
+<title>微光空间</title>
+<meta name="keywords" content="微光空间" />
+<meta name="description" content="微光空间" />
 <meta name="uyan_auth" content="071851c9a5" />
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet">
@@ -21,7 +21,7 @@
   <header>
     <div class="headtop"></div>
     <div class="contenttop">
-    <div class="logo f_l" style="display: inline-block;">孤独客空间</div>
+    <div class="logo f_l" style="display: inline-block;">微光空间</div>
 	
     <div class="search f_r" style="display: inline-block;">
       <p>${suser.motto}</p>
@@ -39,12 +39,9 @@
             	</ul>
             </li>
  			<li><a href="${pageContext.request.contextPath}/shuo.htm" target="_blank">碎言碎语</a> </li>
-            <li><a href="javascript:;">关于我</a>
-              <ul>
-                <li><a href="${pageContext.request.contextPath}/about.htm" target="_blank">个人简介</a></li>
-              </ul>
-            </li>
+            <li><a href="${pageContext.request.contextPath}/about.htm" target="_blank">个人简介</a></li>
             <li><a href="${pageContext.request.contextPath}/message.htm" target="_blank">留言板</a></li>
+            <li><a href="http://www.guduke.cn/blog_bg" target="_blank">后台管理</a></li>
           </ul>
         </div>
       </nav>
@@ -73,20 +70,20 @@
       </ul>
       <p class="dateview">
 	      <span><fmt:formatDate value="${article.createtime}" pattern="yyyy-MM-dd"/></span>
-	      <span>作者：孤独客</span>
+	      <span>作者：微光</span>
 	      <span>个人空间：[<a href="${pageContext.request.contextPath}/list.htm?id=${article.categoryid}">${article.category.name}</a>]</span>
       </p>     
       </c:forEach>
     </div>
     <div class="r_box f_r">
       <div class="tit01">
-        <h3 class="tit">关注我</h3>
+        <h3 class="tit">联系方式</h3>
         <div class="gzwm">
           <ul>
-            <li><a class="email" >我的电话</a></li>
-            <li><a class="qq" href="#" title="${suser.email}">我的邮箱</a></li>
-            <li><a class="tel" href="#" title="${suser.qq}">我的QQ</a></li>
-            <li><a class="prize" href="#">个人奖项</a></li>
+            <li><a class="email" title="无可奉告^-^">我的电话</a></li>
+            <li><a class="qq" href="mailto:${suser.email}" title="${suser.email}" target="_blank">我的邮箱</a></li>
+            <li><a class="tel" href="http://wpa.qq.com/msgrd?v=3&uin=${suser.qq}&site=qq&menu=yes" title="${suser.qq}" target="_blank">我的QQ</a></li>
+            <li><a class="prize" href="https://weibo.com/2621560252" target="_blank">我的微博</a></li>
           </ul>
         </div>
       </div>
@@ -121,6 +118,14 @@
           </c:forEach>
         </ul>
       </div>
+      <div class="ph">
+      	<h3 class="tit">友情链接</h3>
+      	<ul class="links" style="width: 100%">
+      		<c:forEach items="${links}" var="link">
+      			<li><a href="${link.url}" target="_blank">${link.name}</a></li>
+			</c:forEach>
+      	</ul>
+      </div>
       <div class="ad"> <img src="${pageContext.request.contextPath}/images/03.jpg"> </div>
     </div>
   </div>
@@ -129,7 +134,7 @@
   <footer>
     <div class="footer">
       <div class="f_l">
-        <p>All Rights Reserved 版权所有：<a href="http://www.guduke.cn/">孤独客空间</a></p>
+        <p>All Rights Reserved 版权所有：<a href="http://www.guduke.cn/">微光空间</a>  备案号：湘ICP备17018824</p>
       </div>
       <div class="f_r textr">
         <p>Design by Guduke</p>

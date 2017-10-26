@@ -79,4 +79,24 @@
 	<select id="queryCategory" resultType="category">
 		select * from t_category
 	</select>
+	
+	<select id="queryPreArticle" parameterType="article" resultMap="articleMap">
+		select * from t_article a,t_category c
+		WHERE a.id = (
+		select max(id) from t_article where id &lt; #{id} and categoryid=#{categoryid}
+		)
+		and a.categoryid=c.id
+	</select>
+	
+	<select id="queryNextArticle" parameterType="article" resultMap="articleMap">
+		select * from t_article a,t_category c
+		WHERE a.id = (
+		select min(id) from t_article where id &gt; #{id} and categoryid=#{categoryid}
+		)
+		and a.categoryid=c.id
+	</select>
+	
+	<select id="queryLink" resultType="link">
+		select * from t_link
+	</select>
 </mapper>

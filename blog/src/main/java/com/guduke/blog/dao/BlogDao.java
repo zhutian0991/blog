@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.guduke.blog.entity.Article;
 import com.guduke.blog.entity.Category;
+import com.guduke.blog.entity.Link;
 import com.guduke.blog.entity.User;
 import com.guduke.blog.entity.Word;
 
@@ -31,6 +32,12 @@ public interface BlogDao {
 	User queryUser();
 
 	List<Category> queryCategory();
+
+	Article queryPreArticle(Article article);
+
+	Article queryNextArticle(Article article);
+
+	List<Link> queryLink();
 
 
 }

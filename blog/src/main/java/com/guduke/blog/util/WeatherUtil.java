@@ -15,7 +15,7 @@ public class WeatherUtil {
 		ArrayOfString arrayOfString = webServiceSoap.getWeatherbyCityName(city);
 		List<String> list = arrayOfString.getString();
 		String tq = list.get(6).substring(5);
-		if(tq.equals("域暂时不被支持。http://www.webxml.com.cn/")){
+		if(tq.equals("域暂时不被支持。http://www.webxml.com.cn/")||tq.equals("务暂停。联系我们：http://www.webxml.com.cn/")){
 			return null;
 		}else{
 			String emperature = list.get(5);

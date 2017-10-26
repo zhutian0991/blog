@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Refresh" content="5; url=http://www.guduke.cn" /> 
+<title>访问出错</title>
 </head>
 <body>
 	<center>
-		<h3 style="color: red;">请求失败，请重新访问！</h3>
+		<h3 style="color: red;">网站访问失败，3秒后再次请求网站</h3>
 	</center>
 </body>
 </html>

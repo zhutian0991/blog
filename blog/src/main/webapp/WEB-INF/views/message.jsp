@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>个人简介</title>
+<title>留言板</title>
 <meta name="keywords" content="微光空间" />
 <meta name="description" content="微光空间" />
 <link href="${pageContext.request.contextPath}/css/base.css" rel="stylesheet">
@@ -62,13 +62,10 @@
   <div class="container">
     <div class="con_content">
       <div class="about_box">
-        <h2 class="nh1" style=""><span>您现在的位置是：<a href="${pageContext.request.contextPath}/home.htm">网站首页</a>>><a href="#">信息浏览</a></span><b>个人简介</b></h2>
-        <div class="f_box">
-          <p class="a_title">个人简介</p>
-          <p class="p_title"></p> 
-        </div>
+        <h2 class="nh1" style=""><span>您现在的位置是：<a href="${pageContext.request.contextPath}/home.htm">网站首页</a>>><a href="#">信息浏览</a></span><b>留言板</b></h2>
         <ul class="about_content">
-          <p>${suser.introduce}</p>
+          <div id="uyan_frame"></div>
+		  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142725"></script>
         </ul>
       </div>
     </div>
